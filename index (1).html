@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title id="pageTitle">Андрей &amp; Валерия — 27 августа 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF6F0;
+    --blush:#F1DFD8;
+    --rose:#CE9E93;
+    --gold:#B08B54;
+    --espresso:#3B322C;
+    --taupe:#7C6E62;
+    --line: rgba(59,50,44,0.16);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ivory);
+    color:var(--espresso);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.serif{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    color:var(--espresso);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  a{color:inherit;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:sticky;
+    top:0;
+    height:100vh;
+    height:100dvh;
+    width:100%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:0;
+  }
+
+  .hero video, .hero .hero-fallback{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .hero .yt-bg{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+  }
+  .hero .yt-bg iframe{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:177.78vh;
+    min-width:100%;
+    height:56.25vw;
+    min-height:100%;
+    transform:translate(-50%,-50%);
+    border:0;
+  }
+
+  .hero .hero-fallback{
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(206,158,147,0.35), transparent 60%),
+      radial-gradient(ellipse at 75% 80%, rgba(176,139,84,0.30), transparent 55%),
+      linear-gradient(160deg, #2c241f 0%, #4a3c33 55%, #3b322c 100%);
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(20,16,14,0.16) 0%, rgba(20,16,14,0.16) 72%, rgba(20,16,14,0) 90%, var(--ivory) 100%);
+    pointer-events:none;
+  }
+
+  .hero-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:#fdfaf6;
+    padding:0 24px;
+  }
+
+  .hero-eyebrow{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    letter-spacing:0.04em;
+    color:#f0e2d8;
+    text-shadow:0 1px 12px rgba(0,0,0,0.4);
+    margin-bottom:18px;
+    opacity:0;
+    animation:riseIn 1.1s ease-out 0.2s forwards;
+  }
+
+  .hero-names{
+    font-size:clamp(3.2rem, 9vw, 6.5rem);
+    font-weight:500;
+    letter-spacing:0.03em;
+    line-height:1.15;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    color:#fdfaf6;
+    text-shadow:0 2px 24px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.5);
+    opacity:0;
+    animation:riseIn 1.1s ease-out 0.5s forwards;
+  }
+
+  .hero-names .amp{
+    display:block;
+    font-style:italic;
+    font-size:0.42em;
+    line-height:1;
+    margin:0.12em 0;
+    color:#e3c088;
+    text-shadow:0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .hero-date{
+    margin-top:22px;
+    font-size:1.5rem;
+    letter-spacing:0.14em;
+    color:#f0e2d8;
+    text-shadow:0 1px 12px rgba(0,0,0,0.4);
+    opacity:0;
+    animation:riseIn 1.1s ease-out 0.8s forwards;
+  }
+
+  .open-invite{
+    margin-top:36px;
+    padding:14px 38px;
+    background:transparent;
+    border:1px solid rgba(240,226,216,0.7);
+    border-radius:100px;
+    color:#fdfaf6;
+    font-family:'Jost', sans-serif;
+    font-size:0.9rem;
+    letter-spacing:0.08em;
+    cursor:pointer;
+    transition:background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .open-invite:hover{
+    background:#f0e2d8;
+    color:var(--espresso);
+    border-color:#f0e2d8;
+  }
+
+  .entry-gate{
+    position:absolute;
+    inset:0;
+    z-index:4;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(20,16,14,0.5);
+    backdrop-filter:blur(22px) saturate(1.05);
+    -webkit-backdrop-filter:blur(22px) saturate(1.05);
+    transition:opacity 0.9s ease;
+  }
+  @media (hover:none) and (pointer:coarse){
+    .entry-gate{
+      background:rgba(20,16,14,0.72);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
+  }
+  .entry-gate-label{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -78px);
+    text-align:center;
+    color:#f0e2d8;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.1rem;
+    letter-spacing:0.03em;
+  }
+  .entry-gate.opened{
+    opacity:0;
+    pointer-events:none;
+  }
+
+  @media (max-width:400px){
+    .hero-names{font-size:clamp(2.5rem, 12vw, 3.2rem); gap:0.32em;}
+    .hero-eyebrow{font-size:0.92rem; padding:0 6px;}
+    .hero-date{font-size:1.2rem;}
+    .open-invite{padding:12px 30px; font-size:0.84rem;}
+    .entry-gate-label{font-size:0.95rem; padding:0 20px; transform:translate(-50%, -72px);}
+  }
+
+  @media (max-height:680px) and (orientation:landscape){
+    .entry-gate-label{transform:translate(-50%, -58px);}
+  }
+
+  .hero-scroll{
+    position:absolute;
+    bottom:36px;
+    left:50%;
+    z-index:2;
+    color:#f0e2d8;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    opacity:0;
+    animation:riseInCentered 1.1s ease-out 1.1s forwards;
+  }
+
+  .hero-scroll .line{
+    width:1px;
+    height:34px;
+    background:linear-gradient(180deg, rgba(240,226,216,0.9), transparent);
+    animation:scrollPulse 2.2s ease-in-out infinite;
+  }
+
+  .sound-toggle{
+    position:absolute;
+    top:calc(28px + env(safe-area-inset-top, 0px));
+    right:calc(28px + env(safe-area-inset-right, 0px));
+    z-index:5;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 16px;
+    border-radius:100px;
+    border:1px solid rgba(240,226,216,0.5);
+    background:rgba(20,16,14,0.25);
+    backdrop-filter:blur(6px);
+    color:#f0e2d8;
+    font-family:'Jost', sans-serif;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    cursor:pointer;
+    opacity:0;
+    animation:riseIn 1.1s ease-out 1.1s forwards;
+    transition:background 0.25s ease, border-color 0.25s ease;
+  }
+  .sound-toggle:hover{
+    background:rgba(20,16,14,0.4);
+    border-color:rgba(240,226,216,0.8);
+  }
+  .sound-toggle svg{
+    width:15px;
+    height:15px;
+    flex-shrink:0;
+  }
+  .sound-toggle .icon-off{display:block;}
+  .sound-toggle .icon-on{display:none;}
+  .sound-toggle.unmuted .icon-off{display:none;}
+  .sound-toggle.unmuted .icon-on{display:block;}
+
+  @media (max-width:560px){
+    .sound-toggle{
+      top:calc(16px + env(safe-area-inset-top, 0px));
+      right:calc(16px + env(safe-area-inset-right, 0px));
+      padding:12px;
+    }
+    .sound-toggle span{display:none;}
+  }
+
+  .lang-switch{
+    position:absolute;
+    top:calc(28px + env(safe-area-inset-top, 0px));
+    left:calc(28px + env(safe-area-inset-left, 0px));
+    z-index:5;
+    display:flex;
+    gap:4px;
+    padding:5px;
+    border-radius:100px;
+    border:1px solid rgba(240,226,216,0.5);
+    background:rgba(20,16,14,0.25);
+    backdrop-filter:blur(6px);
+    opacity:0;
+    animation:riseIn 1.1s ease-out 1.1s forwards;
+  }
+  .lang-switch button{
+    border:none;
+    background:transparent;
+    color:#f0e2d8;
+    font-family:'Jost', sans-serif;
+    font-size:0.74rem;
+    letter-spacing:0.03em;
+    padding:7px 12px;
+    border-radius:100px;
+    cursor:pointer;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  .lang-switch button.active{
+    background:#f0e2d8;
+    color:var(--espresso);
+  }
+  .lang-switch button:not(.active):hover{
+    background:rgba(240,226,216,0.15);
+  }
+
+  @media (max-width:560px){
+    .lang-switch{
+      top:calc(16px + env(safe-area-inset-top, 0px));
+      left:calc(16px + env(safe-area-inset-left, 0px));
+      padding:4px;
+    }
+    .lang-switch button{padding:6px 10px; font-size:0.7rem;}
+  }
+
+  @keyframes riseIn{
+    from{opacity:0; transform:translateY(16px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @keyframes riseInCentered{
+    from{opacity:0; transform:translate(-50%, 16px);}
+    to{opacity:1; transform:translate(-50%, 0);}
+  }
+  @keyframes scrollPulse{
+    0%,100%{transform:scaleY(0.6); opacity:0.5;}
+    50%{transform:scaleY(1); opacity:1;}
+  }
+
+  /* ---------- MAIN CONTENT (slides over hero) ---------- */
+  .content{
+    position:relative;
+    z-index:1;
+    background:var(--ivory);
+    border-radius:28px 28px 0 0;
+    box-shadow:0 -24px 60px rgba(20,16,14,0.18);
+  }
+
+  section{
+    padding:100px 24px;
+    max-width:720px;
+    margin:0 auto;
+  }
+
+  .ornament{
+    width:64px;
+    height:auto;
+    margin:0 auto 28px;
+    display:block;
+    opacity:0.85;
+  }
+
+  /* Invitation */
+  .invite{
+    text-align:center;
+  }
+  .invite .lead{
+    font-size:1.35rem;
+    line-height:1.6;
+    color:var(--espresso);
+    max-width:560px;
+    margin:0 auto 20px;
+  }
+  .invite p{
+    font-size:1.02rem;
+    line-height:1.8;
+    color:var(--taupe);
+    max-width:520px;
+    margin:0 auto 16px;
+  }
+  .invite .signature{
+    margin-top:36px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.6rem;
+    color:var(--gold);
+  }
+
+  /* Date & Place */
+  .details{
+    background:var(--blush);
+    border-radius:24px;
+    padding:64px 40px;
+    text-align:center;
+  }
+  .details .date-big{
+    font-size:clamp(2.4rem, 6vw, 3.4rem);
+    letter-spacing:0.02em;
+  }
+  .details .date-sub{
+    margin-top:6px;
+    font-size:0.95rem;
+    letter-spacing:0.1em;
+    color:var(--taupe);
+  }
+  .divider{
+    width:40px;
+    height:1px;
+    background:var(--gold);
+    margin:34px auto;
+  }
+  .venue-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px;
+    text-align:center;
+  }
+  .venue-pin{
+    width:56px;
+    height:56px;
+    margin:0 auto 16px;
+    display:block;
+  }
+  .venue-tag{
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .venue-name{
+    font-size:1.3rem;
+    margin-bottom:6px;
+  }
+  .venue-address{
+    color:var(--taupe);
+    font-size:0.92rem;
+    line-height:1.6;
+    margin-bottom:18px;
+  }
+  .map-link{
+    display:inline-block;
+    font-size:0.88rem;
+    letter-spacing:0.03em;
+    color:var(--espresso);
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:2px;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .map-link:hover{
+    color:var(--gold);
+  }
+
+  @media (max-width:640px){
+    .venue-grid{grid-template-columns:1fr; gap:44px;}
+  }
+
+  /* Calendar */
+  .calendar{
+    max-width:320px;
+    margin:36px auto 0;
+    background:var(--ivory);
+    border-radius:18px;
+    padding:26px 22px;
+  }
+  .calendar-month{
+    text-align:center;
+    font-size:1.3rem;
+    margin-bottom:16px;
+  }
+  .calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(7, 1fr);
+    row-gap:8px;
+    place-items:center;
+  }
+  .calendar-grid span{
+    width:32px;
+    height:32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.85rem;
+    color:var(--espresso);
+  }
+  .cal-dow{
+    font-size:0.7rem;
+    letter-spacing:0.05em;
+    color:var(--taupe);
+    font-weight:400;
+  }
+  .cal-marked{
+    background:var(--gold);
+    color:var(--ivory) !important;
+    border-radius:50%;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    position:relative;
+  }
+
+  /* Timeline */
+  .timeline-title{
+    text-align:center;
+    font-size:2.1rem;
+    margin-bottom:56px;
+  }
+  .timeline{
+    position:relative;
+    padding-left:32px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:5px;
+    top:6px;
+    bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+  .t-item{
+    position:relative;
+    padding-bottom:40px;
+  }
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left:-32px;
+    top:6px;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:var(--ivory);
+    border:2px solid var(--gold);
+  }
+  .t-time{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.3rem;
+    color:var(--gold);
+    margin-bottom:2px;
+  }
+  .t-label{
+    font-size:1.08rem;
+    color:var(--espresso);
+  }
+  .t-desc{
+    font-size:0.92rem;
+    color:var(--taupe);
+    margin-top:4px;
+    line-height:1.6;
+  }
+
+  /* RSVP */
+  .rsvp{
+    text-align:center;
+  }
+  .rsvp p.lead{
+    color:var(--taupe);
+    max-width:480px;
+    margin:0 auto 40px;
+    line-height:1.7;
+  }
+  form{
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .field label{
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    color:var(--taupe);
+  }
+  .field input[type="text"],
+  .field input[type="number"],
+  .field textarea{
+    font-family:'Jost', sans-serif;
+    font-size:1rem;
+    font-weight:400;
+    padding:12px 4px;
+    border:none;
+    border-bottom:1px solid var(--line);
+    background:transparent;
+    color:var(--espresso);
+    outline:none;
+    transition:border-color 0.25s ease;
+  }
+  .field input:focus,
+  .field textarea:focus{
+    border-color:var(--gold);
+  }
+  .field textarea{resize:vertical; min-height:80px;}
+
+  .radio-group{
+    display:flex;
+    gap:24px;
+  }
+  .radio-option{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.98rem;
+    cursor:pointer;
+  }
+  .radio-option input{
+    accent-color:var(--gold);
+    width:16px;
+    height:16px;
+  }
+
+  .submit-btn{
+    margin-top:8px;
+    align-self:center;
+    padding:15px 46px;
+    background:var(--espresso);
+    color:var(--ivory);
+    border:none;
+    border-radius:100px;
+    font-family:'Jost', sans-serif;
+    font-size:0.95rem;
+    letter-spacing:0.05em;
+    cursor:pointer;
+    transition:background 0.25s ease, transform 0.25s ease;
+  }
+  .submit-btn:hover{
+    background:var(--gold);
+    transform:translateY(-1px);
+  }
+  .submit-btn:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  .rsvp-confirm{
+    display:none;
+    text-align:center;
+    padding:32px 20px;
+    border:1px solid var(--line);
+    border-radius:16px;
+  }
+  .rsvp-confirm.show{display:block;}
+  .rsvp-confirm h3{font-size:1.6rem; margin-bottom:8px;}
+  .rsvp-confirm p{color:var(--taupe); font-size:0.95rem;}
+
+  footer{
+    text-align:center;
+    padding:60px 24px 48px;
+    color:var(--taupe);
+    font-size:0.85rem;
+    letter-spacing:0.06em;
+  }
+  footer .monogram{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.4rem;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+
+  @media (max-width:560px){
+    section{padding:72px 20px;}
+    .details{padding:44px 22px;}
+    .timeline{padding-left:26px;}
+    .t-item::before{left:-26px;}
+    .radio-group{gap:16px;}
+    .calendar{padding:22px 12px;}
+    .calendar-grid span{width:28px; height:28px; font-size:0.8rem;}
+    .venue-pin{width:46px; height:46px;}
+    .submit-btn{width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <video class="hero-video" id="heroVideo" muted loop playsinline webkit-playsinline="true" preload="auto"></video>
+
+  <div class="lang-switch" id="langSwitch">
+    <button type="button" data-lang="ru" class="active">RU</button>
+    <button type="button" data-lang="pl">PL</button>
+    <button type="button" data-lang="en">EN</button>
+  </div>
+
+  <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false" aria-label="Звук">
+    <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+    <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+    <span id="soundLabel" data-i18n="sound.on">Включить звук</span>
+  </button>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-i18n="hero.eyebrow">Приглашаем вас разделить с нами этот особенный день</div>
+    <h1 class="hero-names"><span data-i18n="names.groom">Андрей</span><span class="amp">&amp;</span><span data-i18n="names.bride">Валерия</span></h1>
+    <div class="hero-date" data-i18n="hero.date">27 АВГУСТА 2027</div>
+  </div>
+
+  <div class="hero-scroll">
+    <span data-i18n="hero.scroll">ПРИГЛАШЕНИЕ</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="entry-gate" id="entryGate">
+    <div class="entry-gate-label" data-i18n="gate.label">Нажмите, чтобы открыть приглашение</div>
+    <button class="open-invite" id="openInvite" type="button" data-i18n="hero.openBtn">Открыть приглашение</button>
+  </div>
+</div>
+
+<div class="content">
+
+  <section class="invite">
+    <svg class="ornament" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 20C14 4 26 4 32 20C38 4 50 4 62 20" stroke="#B08B54" stroke-width="1"/>
+      <circle cx="32" cy="20" r="2.5" fill="#B08B54"/>
+    </svg>
+    <p class="lead" data-i18n="invite.lead">Дорогие друзья и родные,</p>
+    <p data-i18n="invite.p1">27 августа 2027 года мы, Андрей и Валерия, дадим друг другу клятву верности — и очень хотим, чтобы в этот день вы были рядом.</p>
+    <p data-i18n="invite.p2">Будет тепло, будет искренне, будет много объятий и, конечно, хорошее вино. Ждём вас, чтобы вместе отпраздновать начало нашей истории.</p>
+    <div class="signature" data-i18n="invite.signature">С любовью, Андрей и Валерия</div>
+  </section>
+
+  <section>
+    <div class="details">
+      <div class="date-big serif" data-i18n="details.date">27 августа 2027</div>
+      <div class="date-sub" data-i18n="details.dateSub">ВЕНЧАНИЕ И ПРАЗДНИК</div>
+
+      <div class="calendar" aria-hidden="false">
+        <div class="calendar-month serif" data-i18n="calendar.month">Август 2027</div>
+        <div class="calendar-grid">
+          <span class="cal-dow" data-i18n="calendar.dow1">ПН</span>
+          <span class="cal-dow" data-i18n="calendar.dow2">ВТ</span>
+          <span class="cal-dow" data-i18n="calendar.dow3">СР</span>
+          <span class="cal-dow" data-i18n="calendar.dow4">ЧТ</span>
+          <span class="cal-dow" data-i18n="calendar.dow5">ПТ</span>
+          <span class="cal-dow" data-i18n="calendar.dow6">СБ</span>
+          <span class="cal-dow" data-i18n="calendar.dow7">ВС</span>
+
+          <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
+          <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+          <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+          <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
+          <span>23</span><span>24</span><span>25</span><span>26</span><span class="cal-marked">27</span><span>28</span><span>29</span>
+          <span>30</span><span>31</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="venue-grid">
+        <div class="venue-block">
+          <svg class="venue-pin" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="39" stroke="#B08B54" stroke-width="1" stroke-dasharray="2 4"/>
+            <path d="M40 20c-8 0-14 6-14 14 0 10 14 26 14 26s14-16 14-26c0-8-6-14-14-14Z" fill="#CE9E93" opacity="0.9"/>
+            <circle cx="40" cy="34" r="5" fill="#FBF6F0"/>
+          </svg>
+          <div class="venue-tag" data-i18n="details.churchTag">ЦЕРЕМОНИЯ · 15:30</div>
+          <div class="venue-name serif">Kościół św. Mikołaja Biskupa</div>
+          <div class="venue-address" data-i18n="details.churchAddress">ul. Kościelna 4, 62-085 Skoki</div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Ko%C5%9Bci%C3%B3%C5%82+%C5%9Bw.+Miko%C5%82aja+Biskupa%2C+Ko%C5%9Bcielna+4%2C+62-085+Skoki" target="_blank" rel="noopener" data-i18n="details.openMap">Открыть на карте →</a>
+        </div>
+        <div class="venue-block">
+          <svg class="venue-pin" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="39" stroke="#B08B54" stroke-width="1" stroke-dasharray="2 4"/>
+            <path d="M40 20c-8 0-14 6-14 14 0 10 14 26 14 26s14-16 14-26c0-8-6-14-14-14Z" fill="#B08B54" opacity="0.9"/>
+            <circle cx="40" cy="34" r="5" fill="#FBF6F0"/>
+          </svg>
+          <div class="venue-tag" data-i18n="details.venueTag">ПРАЗДНИК · 16:30</div>
+          <div class="venue-name serif">Gościniec Winnica</div>
+          <div class="venue-address" data-i18n="details.address">ul. Dzwonowska 1, 62-093 Sławica, Polska</div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Go%C5%9Bciniec+Winnica%2C+Dzwonowska+1%2C+62-093+S%C5%82awica" target="_blank" rel="noopener" data-i18n="details.openMap">Открыть на карте →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="timeline-title serif" style="text-align:center;" data-i18n="timeline.title">Программа дня</h2>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">15:00</div>
+        <div class="t-label" data-i18n="timeline.1.label">Сбор гостей у костёла</div>
+        <div class="t-desc" data-i18n="timeline.1.desc">Kościół św. Mikołaja Biskupa w Skokach, ul. Kościelna 4, 62-085 Skoki</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">15:30</div>
+        <div class="t-label" data-i18n="timeline.2.label">Венчание</div>
+        <div class="t-desc" data-i18n="timeline.2.desc">Мы дадим друг другу клятву верности в костёле</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">16:30</div>
+        <div class="t-label" data-i18n="timeline.3.label">Сбор гостей у ресторана</div>
+        <div class="t-desc" data-i18n="timeline.3.desc">Welcome-зона у Gościniec Winnica, приветственные напитки</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">17:00</div>
+        <div class="t-label" data-i18n="timeline.4.label">Банкет</div>
+        <div class="t-desc" data-i18n="timeline.4.desc">Ужин и тосты за молодожёнов</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">23:00</div>
+        <div class="t-label" data-i18n="timeline.5.label">Торт</div>
+        <div class="t-desc" data-i18n="timeline.5.desc">Разрезание свадебного торта</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time" data-i18n="timeline.6.time">До 02:00</div>
+        <div class="t-label" data-i18n="timeline.6.label">Танцы</div>
+        <div class="t-desc" data-i18n="timeline.6.desc">Музыка и продолжение праздника до ночи</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp">
+    <h2 class="serif" style="font-size:2.1rem;" data-i18n="rsvp.title">Будете с нами?</h2>
+    <p class="lead" data-i18n="rsvp.lead">Пожалуйста, подтвердите присутствие до 31.03.2027 — это поможет нам с рассадкой и меню.</p>
+
+    <form id="rsvpForm">
+      <div class="field">
+        <label for="name" data-i18n="rsvp.name">Ваше имя и фамилия</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="field">
+        <label data-i18n="rsvp.attendingQ">Сможете прийти?</label>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="attending" value="Да" checked> <span data-i18n="rsvp.yes">Да, буду</span></label>
+          <label class="radio-option"><input type="radio" name="attending" value="Нет"> <span data-i18n="rsvp.no">К сожалению, нет</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="guests" data-i18n="rsvp.guests">Количество гостей (включая вас)</label>
+        <input type="number" id="guests" name="guests" min="1" max="10" value="1">
+      </div>
+
+      <button type="submit" class="submit-btn" data-i18n="rsvp.submit">Отправить</button>
+    </form>
+
+    <div class="rsvp-confirm" id="rsvpConfirm">
+      <h3 class="serif" data-i18n="rsvp.thanksTitle">Спасибо!</h3>
+      <p data-i18n="rsvp.thanksText">Мы получили ваш ответ и очень ждём встречи с вами 27 августа 2027 года.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="monogram" data-i18n="footer.monogram">А &amp; В</div>
+    <div data-i18n="footer.line">27.08.2027 · Sławica, Polska</div>
+  </footer>
+
+</div>
+
+<script>
+  // Многоязычность: RU / PL / EN
+  const translations = {
+    ru: {
+      "sound.on": "Включить звук",
+      "sound.off": "Выключить звук",
+      "names.groom": "Андрей",
+      "names.bride": "Валерия",
+      "footer.monogram": "А & В",
+      "hero.eyebrow": "Приглашаем вас разделить с нами этот особенный день",
+      "hero.date": "27 АВГУСТА 2027",
+      "hero.scroll": "ПРИГЛАШЕНИЕ",
+      "hero.openBtn": "Открыть приглашение",
+      "gate.label": "Нажмите, чтобы открыть приглашение",
+      "invite.lead": "Дорогие друзья и родные,",
+      "invite.p1": "27 августа 2027 года мы, Андрей и Валерия, дадим друг другу клятву верности — и очень хотим, чтобы в этот день вы были рядом.",
+      "invite.p2": "Будет тепло, будет искренне, будет много объятий и, конечно, хорошее вино. Ждём вас, чтобы вместе отпраздновать начало нашей истории.",
+      "invite.signature": "С любовью, Андрей и Валерия",
+      "details.date": "27 августа 2027",
+      "details.dateSub": "ВЕНЧАНИЕ И ПРАЗДНИК",
+      "details.churchTag": "ВЕНЧАНИЕ · 15:30",
+      "details.churchAddress": "ul. Kościelna 4, 62-085 Skoki",
+      "details.venueTag": "ПРАЗДНИК · 16:30",
+      "details.address": "ul. Dzwonowska 1, 62-093 Sławica, Polska",
+      "details.openMap": "Открыть на карте →",
+      "calendar.month": "Август 2027",
+      "calendar.dow1": "ПН", "calendar.dow2": "ВТ", "calendar.dow3": "СР", "calendar.dow4": "ЧТ",
+      "calendar.dow5": "ПТ", "calendar.dow6": "СБ", "calendar.dow7": "ВС",
+      "timeline.title": "Программа дня",
+      "timeline.1.label": "Сбор гостей у костёла",
+      "timeline.1.desc": "Kościół św. Mikołaja Biskupa w Skokach, ul. Kościelna 4, 62-085 Skoki",
+      "timeline.2.label": "Венчание",
+      "timeline.2.desc": "Мы дадим друг другу клятву верности в костёле",
+      "timeline.3.label": "Сбор гостей у ресторана",
+      "timeline.3.desc": "Welcome-зона у Gościniec Winnica, приветственные напитки",
+      "timeline.4.label": "Банкет",
+      "timeline.4.desc": "Ужин и тосты за молодожёнов",
+      "timeline.5.label": "Торт",
+      "timeline.5.desc": "Разрезание свадебного торта",
+      "timeline.6.time": "До 02:00",
+      "timeline.6.label": "Танцы",
+      "timeline.6.desc": "Музыка и продолжение праздника до ночи",
+      "rsvp.title": "Будете с нами?",
+      "rsvp.lead": "Пожалуйста, подтвердите присутствие до 31.03.2027 — это поможет нам с рассадкой и меню.",
+      "rsvp.name": "Ваше имя и фамилия",
+      "rsvp.attendingQ": "Сможете прийти?",
+      "rsvp.yes": "Да, буду",
+      "rsvp.no": "К сожалению, нет",
+      "rsvp.guests": "Количество гостей (включая вас)",
+      "rsvp.submit": "Отправить",
+      "rsvp.thanksTitle": "Спасибо!",
+      "rsvp.thanksText": "Мы получили ваш ответ и очень ждём встречи с вами 27 августа 2027 года.",
+      "footer.line": "27.08.2027 · Sławica, Polska",
+      "page.title": "Андрей & Валерия — 27 августа 2027"
+    },
+    pl: {
+      "sound.on": "Włącz dźwięk",
+      "sound.off": "Wyłącz dźwięk",
+      "names.groom": "Andrzej",
+      "names.bride": "Waleria",
+      "footer.monogram": "A & W",
+      "hero.eyebrow": "Zapraszamy Was, aby dzielić z nami ten wyjątkowy dzień",
+      "hero.date": "27 SIERPNIA 2027",
+      "hero.scroll": "ZAPROSZENIE",
+      "hero.openBtn": "Otwórz zaproszenie",
+      "gate.label": "Kliknij, aby otworzyć zaproszenie",
+      "invite.lead": "Drodzy przyjaciele i rodzino,",
+      "invite.p1": "27 sierpnia 2027 roku my, Andrzej i Waleria, złożymy sobie przysięgę wierności — i bardzo chcemy, abyście tego dnia byli z nami.",
+      "invite.p2": "Będzie ciepło, będzie szczerze, będzie mnóstwo uścisków i, oczywiście, dobre wino. Czekamy na Was, aby wspólnie świętować początek naszej historii.",
+      "invite.signature": "Z miłością, Andrzej i Waleria",
+      "details.date": "27 sierpnia 2027",
+      "details.dateSub": "ŚLUB I WESELE",
+      "details.churchTag": "ŚLUB · 15:30",
+      "details.churchAddress": "ul. Kościelna 4, 62-085 Skoki",
+      "details.venueTag": "PRZYJĘCIE · 16:30",
+      "details.address": "ul. Dzwonowska 1, 62-093 Sławica, Polska",
+      "details.openMap": "Zobacz na mapie →",
+      "calendar.month": "Sierpień 2027",
+      "calendar.dow1": "PN", "calendar.dow2": "WT", "calendar.dow3": "ŚR", "calendar.dow4": "CZ",
+      "calendar.dow5": "PT", "calendar.dow6": "SO", "calendar.dow7": "ND",
+      "timeline.title": "Plan dnia",
+      "timeline.1.label": "Przyjęcie gości przy kościele",
+      "timeline.1.desc": "Kościół św. Mikołaja Biskupa w Skokach, ul. Kościelna 4, 62-085 Skoki",
+      "timeline.2.label": "Ślub",
+      "timeline.2.desc": "Złożymy sobie przysięgę małżeńską w kościele",
+      "timeline.3.label": "Przyjęcie gości przy restauracji",
+      "timeline.3.desc": "Strefa powitalna przy Gościńcu Winnica, powitalne napoje",
+      "timeline.4.label": "Bankiet",
+      "timeline.4.desc": "Kolacja i toasty za młodą parę",
+      "timeline.5.label": "Tort",
+      "timeline.5.desc": "Krojenie tortu weselnego",
+      "timeline.6.time": "Do 02:00",
+      "timeline.6.label": "Zabawa",
+      "timeline.6.desc": "Muzyka i dalsza część przyjęcia do nocy",
+      "rsvp.title": "Będziecie z nami?",
+      "rsvp.lead": "Prosimy o potwierdzenie obecności do 31.03.2027 — pomoże nam to w organizacji miejsc i menu.",
+      "rsvp.name": "Imię i nazwisko",
+      "rsvp.attendingQ": "Czy będziecie obecni?",
+      "rsvp.yes": "Tak, będę",
+      "rsvp.no": "Niestety nie",
+      "rsvp.guests": "Liczba gości (łącznie z Wami)",
+      "rsvp.submit": "Wyślij",
+      "rsvp.thanksTitle": "Dziękujemy!",
+      "rsvp.thanksText": "Otrzymaliśmy Waszą odpowiedź i nie możemy się doczekać spotkania 27 sierpnia 2027 roku.",
+      "footer.line": "27.08.2027 · Sławica, Polska",
+      "page.title": "Andrzej & Waleria — 27 sierpnia 2027"
+    },
+    en: {
+      "sound.on": "Unmute video",
+      "sound.off": "Mute video",
+      "names.groom": "Andrey",
+      "names.bride": "Valeria",
+      "footer.monogram": "A & V",
+      "hero.eyebrow": "Please join us to share this special day",
+      "hero.date": "AUGUST 27, 2027",
+      "hero.scroll": "INVITATION",
+      "hero.openBtn": "Open invitation",
+      "gate.label": "Tap to open the invitation",
+      "invite.lead": "Dear friends and family,",
+      "invite.p1": "On August 27, 2027, we, Andrey and Valeria, will exchange our wedding vows — and we would love for you to be there with us.",
+      "invite.p2": "It will be warm, it will be heartfelt, there will be plenty of hugs and, of course, good wine. We can't wait to celebrate the start of our story together with you.",
+      "invite.signature": "With love, Andrey and Valeria",
+      "details.date": "August 27, 2027",
+      "details.dateSub": "WEDDING VOWS & RECEPTION",
+      "details.churchTag": "WEDDING VOWS · 3:30 PM",
+      "details.churchAddress": "ul. Kościelna 4, 62-085 Skoki",
+      "details.venueTag": "RECEPTION · 4:30 PM",
+      "details.address": "ul. Dzwonowska 1, 62-093 Sławica, Poland",
+      "details.openMap": "View on map →",
+      "calendar.month": "August 2027",
+      "calendar.dow1": "MON", "calendar.dow2": "TUE", "calendar.dow3": "WED", "calendar.dow4": "THU",
+      "calendar.dow5": "FRI", "calendar.dow6": "SAT", "calendar.dow7": "SUN",
+      "timeline.title": "Schedule of the day",
+      "timeline.1.label": "Guests gather at the church",
+      "timeline.1.desc": "Kościół św. Mikołaja Biskupa w Skokach, ul. Kościelna 4, 62-085 Skoki",
+      "timeline.2.label": "Wedding vows",
+      "timeline.2.desc": "We'll exchange our vows at the church",
+      "timeline.3.label": "Guests gather at the venue",
+      "timeline.3.desc": "Welcome area at Gościniec Winnica, welcome drinks",
+      "timeline.4.label": "Reception dinner",
+      "timeline.4.desc": "Dinner and toasts to the newlyweds",
+      "timeline.5.label": "Cake",
+      "timeline.5.desc": "Cutting of the wedding cake",
+      "timeline.6.time": "Until 2:00 AM",
+      "timeline.6.label": "Dancing",
+      "timeline.6.desc": "Music and the party continuing into the night",
+      "rsvp.title": "Will you join us?",
+      "rsvp.lead": "Please confirm your attendance by March 31, 2027 — it helps us plan seating and the menu.",
+      "rsvp.name": "Your full name",
+      "rsvp.attendingQ": "Will you be able to attend?",
+      "rsvp.yes": "Yes, I'll be there",
+      "rsvp.no": "Sorry, can't make it",
+      "rsvp.guests": "Number of guests (including you)",
+      "rsvp.submit": "Send",
+      "rsvp.thanksTitle": "Thank you!",
+      "rsvp.thanksText": "We've received your response and can't wait to see you on August 27, 2027.",
+      "footer.line": "27.08.2027 · Sławica, Poland",
+      "page.title": "Andrey & Valeria — August 27, 2027"
+    }
+  };
+
+  function applyLanguage(lang){
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      const key = el.getAttribute('data-i18n');
+      if(translations[lang][key] !== undefined){
+        el.textContent = translations[lang][key];
+      }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      const key = el.getAttribute('data-i18n-placeholder');
+      if(translations[lang][key] !== undefined){
+        el.setAttribute('placeholder', translations[lang][key]);
+      }
+    });
+    document.documentElement.lang = lang;
+    if(translations[lang]['page.title']){
+      document.title = translations[lang]['page.title'];
+    }
+    document.querySelectorAll('.lang-switch button').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    // держим подпись кнопки звука в соответствии с её текущим состоянием
+    if(soundToggle && soundLabel){
+      const key = soundToggle.classList.contains('unmuted') ? 'sound.off' : 'sound.on';
+      soundLabel.textContent = translations[lang][key];
+    }
+    currentLang = lang;
+  }
+
+  let currentLang = 'ru';
+  document.getElementById('langSwitch').addEventListener('click', function(e){
+    const btn = e.target.closest('button[data-lang]');
+    if(btn) applyLanguage(btn.getAttribute('data-lang'));
+  });
+
+  // Видео и звук на заглавном экране
+  const heroVideo = document.getElementById('heroVideo');
+  if(heroVideo){
+    const isMobileScreen = window.matchMedia('(max-width: 700px)').matches;
+    heroVideo.src = isMobileScreen ? 'reels-mobile.mp4' : 'weselewww.mp4';
+    heroVideo.load();
+  }
+  const soundToggle = document.getElementById('soundToggle');
+  const soundLabel = document.getElementById('soundLabel');
+  const openInvite = document.getElementById('openInvite');
+  const entryGate = document.getElementById('entryGate');
+  let invitationOpened = false;
+
+  // «Открыть приглашение» — размытый экран гаснет, видео стартует со звуком.
+  // До этого момента видео вообще не воспроизводится (чтобы не грузить
+  // телефон одновременным размытием и декодированием видео — это и вызывало лаги).
+  function openInvitation(withSound){
+    if(!heroVideo) return;
+    invitationOpened = true;
+    heroVideo.currentTime = 0;
+    heroVideo.muted = !withSound;
+    heroVideo.play().catch(()=>{});
+    if(soundToggle){
+      soundToggle.classList.toggle('unmuted', withSound);
+      soundToggle.setAttribute('aria-pressed', String(withSound));
+      soundLabel.textContent = translations[currentLang][withSound ? 'sound.off' : 'sound.on'];
+    }
+    if(entryGate) entryGate.classList.add('opened');
+  }
+
+  if(openInvite){
+    openInvite.addEventListener('click', function(){
+      openInvitation(true);
+    });
+  }
+
+  if(soundToggle){
+    soundToggle.addEventListener('click', function(){
+      if(!invitationOpened){
+        openInvitation(true);
+        return;
+      }
+      heroVideo.muted = !heroVideo.muted;
+      const isUnmuted = !heroVideo.muted;
+      soundToggle.classList.toggle('unmuted', isUnmuted);
+      soundToggle.setAttribute('aria-pressed', String(isUnmuted));
+      soundLabel.textContent = translations[currentLang][isUnmuted ? 'sound.off' : 'sound.on'];
+      if(isUnmuted) heroVideo.play().catch(()=>{});
+    });
+  }
+
+  // Останавливаем видео, когда гость пролистывает дальше первого экрана,
+  // и возобновляем при возврате наверх — но только если приглашение уже открыто.
+  // .hero зафиксирован (position: sticky) и технически никогда не покидает
+  // окно просмотра, поэтому ориентируемся на прокрутку, а не на видимость блока.
+  if(heroVideo){
+    let pausedByScroll = false;
+    function updateHeroPlayback(){
+      if(!invitationOpened) return;
+      const threshold = window.innerHeight * 0.9;
+      const pastHero = window.scrollY > threshold;
+      if(pastHero && !pausedByScroll){
+        heroVideo.pause();
+        pausedByScroll = true;
+      } else if(!pastHero && pausedByScroll){
+        heroVideo.play().catch(()=>{});
+        pausedByScroll = false;
+      }
+    }
+    window.addEventListener('scroll', updateHeroPlayback, { passive:true });
+    window.addEventListener('resize', updateHeroPlayback);
+  }
+
+  // RSVP: без сервера форма показывает подтверждение и одновременно
+  // открывает письмо со всеми данными на почту, которую вы укажете ниже.
+  const WEDDING_EMAIL = "andrey.valeria.wedding@example.com"; // <-- замените на свою почту
+
+  const form = document.getElementById('rsvpForm');
+  const confirmBox = document.getElementById('rsvpConfirm');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const attending = form.querySelector('input[name="attending"]:checked').value;
+    const guests = document.getElementById('guests').value;
+
+    const subject = encodeURIComponent(`Подтверждение присутствия: ${name}`);
+    const body = encodeURIComponent(
+      `Имя: ${name}\nПридёт: ${attending}\nКоличество гостей: ${guests}`
+    );
+
+    // Открываем почтовый клиент с готовым письмом
+    window.location.href = `mailto:${WEDDING_EMAIL}?subject=${subject}&body=${body}`;
+
+    form.style.display = 'none';
+    confirmBox.classList.add('show');
+  });
+</script>
+
+</body>
+</html>
